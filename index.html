@@ -1,0 +1,987 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TIFFANY CORPORATED - La beauté en pleine conscience. Nutricosmétique, pédicure, massage et coiffure à Lomé, Togo.">
+    <title>TIFFANY CORPORATED | Beauté & Bien-être</title>
+    
+    <!-- Google Fonts pour le style Luxe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --color-gold: #D4AF37;
+            --color-gold-light: #F4E5B0;
+            --color-gold-dark: #AA8C2C;
+            --color-black: #1A1A1A;
+            --color-charcoal: #2C2C2C;
+            --color-white: #FFFFFF;
+            --color-cream: #FAFAF5;
+            --color-text: #333333;
+            --color-text-light: #777777;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            
+            --spacing-section: 80px;
+            --spacing-container: 20px;
+            --border-radius: 8px;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+            --shadow-hover: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-white);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--color-black);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-gold);
+            margin: 15px auto 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-gold);
+            color: var(--color-gold-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-gold);
+            color: var(--color-white);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--color-black);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--color-gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-container);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--color-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-gold);
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://z-cdn-media.chatglm.cn/files/1e85e35f-0b16-4d02-9598-21f0d64f9c02.png?auth_key=1870479974-d196362179d344e2b78fba60f8c2dc41-0-67c750eed7477fe18a1253cc27a5a777');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-style: italic;
+            color: var(--color-gold-light);
+            margin-bottom: 2rem;
+        }
+
+        /* --- CATEGORIES GRID --- */
+        #categories {
+            padding: var(--spacing-section) 0;
+            background-color: var(--color-cream);
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: var(--color-white);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            cursor: pointer;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--color-gold);
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--color-gold);
+        }
+
+        .cat-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* --- SHOP NUTRICOSMETIQUE --- */
+        #shop {
+            padding: var(--spacing-section) 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .product-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-img-container img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-tag {
+            font-size: 0.75rem;
+            color: var(--color-gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* --- SERVICES SECTION --- */
+        #services {
+            padding: var(--spacing-section) 0;
+            background-color: var(--color-charcoal);
+            color: var(--color-white);
+        }
+
+        #services h2 {
+            color: var(--color-white);
+        }
+
+        #services .section-subtitle {
+            color: #ccc;
+        }
+
+        .service-block {
+            background-color: var(--color-black);
+            border: 1px solid #333;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .service-content {
+            flex: 1 1 400px;
+        }
+
+        .service-content h3 {
+            font-size: 2rem;
+            color: var(--color-gold);
+            margin-bottom: 15px;
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: '•';
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .service-visual {
+            flex: 1 1 300px;
+            position: relative;
+        }
+        
+        /* Produit croisé visuel dans les services */
+        .cross-sell-img {
+            width: 150px;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background: white;
+            padding: 5px;
+        }
+
+        .service-main-img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            border: 1px solid #333;
+        }
+
+        /* --- ABOUT --- */
+        #about {
+            padding: var(--spacing-section) 0;
+            text-align: center;
+            background-color: var(--color-cream);
+        }
+        
+        .trust-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            max-width: 300px;
+        }
+        
+        .trust-icon {
+            font-size: 2rem;
+            color: var(--color-gold);
+            margin-bottom: 10px;
+        }
+
+        /* --- BOOKING --- */
+        #booking {
+            padding: var(--spacing-section) 0;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            border-top: 5px solid var(--color-gold);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-gold);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 60px 0 20px;
+            border-top: 2px solid var(--color-gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: var(--color-white);
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--color-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 2000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 2rem; }
+            
+            .nav-flex {
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                width: 100%;
+                display: none; /* JS toggle */
+                margin-top: 20px;
+                background: #000;
+                padding: 20px 0;
+            }
+            
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .service-block {
+                flex-direction: column;
+                padding: 25px;
+            }
+
+            .cross-sell-img {
+                position: relative;
+                width: 120px;
+                bottom: auto;
+                right: auto;
+                margin-top: -30px;
+                margin-left: auto;
+                z-index: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-flex">
+            <a href="#" class="logo">TIFFANY <span>CORPORATED</span></a>
+            <div class="mobile-toggle" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#shop">Boutique</a></li>
+                    <li><a href="#services">Soins & Massage</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section id="hero">
+            <div class="container hero-content">
+                <h1>La beauté en pleine conscience</h1>
+                <p>Nutricosmétique, Pédicure, Massage & Coiffure à Lomé</p>
+                <a href="https://wa.me/22879674546?text=Bonjour%20Tiffany%20Corporated,%20je%20suis%20intéressé%20par%20vos%20services." class="btn btn-gold">Prendre Rendez-vous</a>
+            </div>
+        </section>
+
+        <!-- Categories Quick Access -->
+        <section id="categories">
+            <div class="container">
+                <div class="cat-grid">
+                    <div class="cat-card" onclick="window.location.href='#shop'">
+                        <div class="cat-icon">✨</div>
+                        <div class="cat-title">Nutricosmétique</div>
+                        <p>Compléments beauté pour l'éclat de l'intérieur.</p>
+                    </div>
+                    <div class="cat-card" onclick="window.location.href='#pedicure'">
+                        <div class="cat-icon">💅</div>
+                        <div class="cat-title">Pédicure</div>
+                        <p>Soins des pieds d'hygiène et relaxation.</p>
+                    </div>
+                    <div class="cat-card" onclick="window.location.href='#massage'">
+                        <div class="cat-icon">💆‍♀️</div>
+                        <div class="cat-title">Massage</div>
+                        <p>Détente musculaire et bien-être absolu.</p>
+                    </div>
+                    <div class="cat-card" onclick="window.location.href='#coiffure'">
+                        <div class="cat-icon">💇‍♀️</div>
+                        <div class="cat-title">Coiffure</div>
+                        <p>Expertise capillaire et styles élégants.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop / Nutricosmétique -->
+        <section id="shop">
+            <div class="container">
+                <h2>Nos Best-Sellers</h2>
+                <p class="section-subtitle">Découvrez notre sélection exclusive de compléments alimentaires pour une peau éclatante et une santé optimale.</p>
+                
+                <div class="product-grid">
+                    
+                    <!-- Produit 1: Collagen -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://z-cdn-media.chatglm.cn/files/1e85e35f-0b16-4d02-9598-21f0d64f9c02.png?auth_key=1870479974-d196362179d344e2b78fba60f8c2dc41-0-67c750eed7477fe18a1253cc27a5a777" alt="Collagen Glowing Powder">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-tag">Best-Seller</div>
+                            <h3 class="product-title">Collagen Glowing Powder (Vanilla)</h3>
+                            <p class="product-desc">Poudre de collagène marine 100% naturelle. Améliore l'élasticité de la peau, blanchit et rend la peau plus jeune.</p>
+                            <a href="https://wa.me/22879674546?text=Bonjour,%20je%20veux%20commander%20le%20Collagen%20Glowing%20Powder" class="btn btn-gold">Commander via WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <!-- Produit 2: Gluta White -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://z-cdn-media.chatglm.cn/files/a4ed47a9-59da-417b-8cd3-76d86978dec9.png?auth_key=1870479974-4989a56c1dd94027a19615c37f576290-0-8a829b0d00d4d3dec4406ee2e39c3f76" alt="Gluta White L-Glutathione">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-tag">Éclat Intense</div>
+                            <h3 class="product-title">Gluta White L-Glutathione Plus</h3>
+                            <p class="product-desc">Formule puissante avec Collagène, Acide Hyaluronique et Vitamine C. Anti-taches, unifie le teint et favorise la jeunesse.</p>
+                            <a href="https://wa.me/22879674546?text=Bonjour,%20je%20veux%20commander%20le%20Gluta%20White" class="btn btn-gold">Commander via WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <!-- Produit 3: Fibroid Tea -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://z-cdn-media.chatglm.cn/files/6b4b98f7-bd04-46e2-8e41-5171b55b026b.png?auth_key=1870479974-53cfd298777b4fd286909aa4f836722b-0-c2fa9d308bc43e60db95d1fb9b4df703" alt="Fibroid Tea Mama Tea">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-tag">Santé Féminine</div>
+                            <h3 class="product-title">Fibroid Tea Mama Tea</h3>
+                            <p class="product-desc">Aide à réguler le cycle menstruel, favorise une ovulation saine, améliore la fertilité et l'équilibre hormonal.</p>
+                            <a href="https://wa.me/22879674546?text=Bonjour,%20je%20veux%20commander%20le%20Fibroid%20Tea" class="btn btn-gold">Commander via WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <!-- Produit 4: Spirulina & Coconut Bundle -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://z-cdn-media.chatglm.cn/files/96e5f498-d795-49e1-8c3b-d616091b182a.png?auth_key=1870479974-be670e5ff5e04624bec54a94578c5bc9-0-87964f5b43f1dc74fca135b9c768ff26" alt="Spirulina & Coconut">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-tag">Énergie & Vitalité</div>
+                            <h3 class="product-title">Poudre de Spiruline & Lait de Coco</h3>
+                            <p class="product-desc">Le duo parfait pour un apport nutritionnel optimal, une énergie durable et une hydratation naturelle.</p>
+                            <a href="https://wa.me/22879674546?text=Bonjour,%20je%20veux%20commander%20la%20Spiruline%20et%20le%20Coco%20Milk" class="btn btn-gold">Commander via WhatsApp</a>
+                        </div>
+                    </div>
+
+                     <!-- Produit 5: Detox -->
+                     <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="1770402861399.png" alt="Despega Todo Detox">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-tag">Détox</div>
+                            <h3 class="product-title">Despega Todo Detox</h3>
+                            <p class="product-desc">Nettoyage intestinal complet, force extra. 100% bio pour éliminer les toxines et retrouver légèreté.</p>
+                            <a href="https://wa.me/22879674546?text=Bonjour,%20je%20veux%20commander%20le%20Detox" class="btn btn-gold">Commander via WhatsApp</a>
+                        </div>
+                    </div>
+
+                     <!-- Produit 6: Glutathione Dandelion -->
+                     <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://z-cdn-media.chatglm.cn/files/262cc78d-b1d8-4fe5-b7f9-a4127ca508c5.png?auth_key=1870479974-b0cd9fbb662742d3a2bff76aa1feeb60-0-d58fdad32436d7680be3ded4c0bd3df4" alt="Glutathione Pissenlit">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-tag">Purification</div>
+                            <h3 class="product-title">Glutathione & Pissenlit</h3>
+                            <p class="product-desc">L'association antioxydante puissante du pissenlit et de la glutathione pour une peau saine.</p>
+                            <a href="https://wa.me/22879674546?text=Bonjour,%20je%20veux%20commander%20le%20Glutathione%20Pissenlit" class="btn btn-gold">Commander via WhatsApp</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2>Nos Prestations Bien-Être</h2>
+                <p class="section-subtitle">Une expérience holistique pour sublimer votre corps et votre esprit.</p>
+
+                <!-- Pédicure -->
+                <div class="service-block" id="pedicure">
+                    <div class="service-content">
+                        <h3>Pédicure Professionnelle</h3>
+                        <p>Nous mettons un point d'honneur à l'hygiène irréprochable. Nos soins de pieds sont conçus pour relaxer, soigner et embellir.</p>
+                        <ul class="service-list">
+                            <li>Pédicure médicale et esthétique</li>
+                            <li>Gommage exfoliant aux sels minéraux</li>
+                            <li>Massage relaxant des mollets</li>
+                            <li>Pose de vernis semi-permanent</li>
+                        </ul>
+                        <p><strong>Durée :</strong> 45min - 1h | <strong>Tarif :</strong> Sur demande</p>
+                        <br>
+                        <a href="#booking" class="btn btn-gold">Réserver ma séance</a>
+                    </div>
+                    <div class="service-visual">
+                        <!-- Image générique de spa/pieds (placeholder) + Produit croisé -->
+                        <img src="10402861399.png" alt="Salle de pédicure" class="service-main-img">
+                        <!-- Lien visuel produit -->
+                        <a href="#shop" title="Voir nos produits de soin">
+                            <img src="https://z-cdn-media.chatglm.cn/files/ed905572-e029-4e71-b60d-881bd5acc794.png?auth_key=1870479974-9d7c81da3ff74a38ab7ac5de05fbe073-0-dd0aba9903c4fbe786c5b7f1db6c56ae" class="cross-sell-img" alt="Produits utilisés">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Massage -->
+                <div class="service-block" id="massage">
+                    <div class="service-content">
+                        <h3>Massage & Détente</h3>
+                        <p>Laissez-vous porter par une ambiance de calme absolu. Nos massages libèrent les tensions et réharmonisent votre énergie.</p>
+                        <ul class="service-list">
+                            <li>Massage Californien (détente profonde)</li>
+                            <li>Massage Draining (circulation)</li>
+                            <li>Huiles essentielles bio</li>
+                            <li>Musique douce et bougies</li>
+                        </ul>
+                        <p><strong>Durée :</strong> 60min - 90min | <strong>Tarif :</strong> Sur demande</p>
+                        <br>
+                        <a href="#booking" class="btn btn-gold">Réserver un massage</a>
+                    </div>
+                    <div class="service-visual">
+                        <img src="téléchargement (2).png" alt="Salle de massage" class="service-main-img">
+                         <!-- Lien visuel produit: Collagen -->
+                         <a href="#shop" title="Voir nos compléments bien-être">
+                            <img src="402861399.png" class="cross-sell-img" alt="Produit Glutathione">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coiffure -->
+                <div class="service-block" id="coiffure">
+                    <div class="service-content">
+                        <h3>Espace Coiffure</h3>
+                        <p>Découvrez notre espace dédié à la beauté de vos cheveux. Du soin capillaire profond aux coiffures protectrices et élégantes.</p>
+                        <ul class="service-list">
+                            <li>Soins capillaires profonds (Hydratation)</li>
+                            <li>Coiffure protectrice (Tresses, Nattes)</li>
+                            <li>Brushing et mise en plis</li>
+                            <li>Conseils personnalisés</li>
+                        </ul>
+                        <p><strong>Durée :</strong> Variable | <strong>Tarif :</strong> Sur demande</p>
+                        <br>
+                        <a href="#booking" class="btn btn-gold">Prendre rendez-vous</a>
+                    </div>
+                    <div class="service-visual">
+                        <img src="téléchargement (3).png" alt="Espace coiffure" class="service-main-img">
+                        <!-- Lien visuel produit: Coco Milk -->
+                        <a href="#shop" title="Voir nos produits beauté">
+                            <img src="téléchargement (4).png" class="cross-sell-img" alt="Coco Milk Powder">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Trust -->
+        <section id="about">
+            <div class="container">
+                <h2>Qui sommes-nous ?</h2>
+                <p class="section-subtitle">TIFFANY CORPORATED est bien plus qu'un salon. C'est un sanctuaire de beauté à Lomé dédié à votre bien-être global.</p>
+                
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon">🌿</div>
+                        <h4>100% Naturel</h4>
+                        <p>Nous privilégions des solutions et produits naturels pour respecter votre corps.</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">🛡️</div>
+                        <h4>Sécurité & Hygiène</h4>
+                        <p>Protocoles stricts de désinfection pour votre tranquillité d'esprit.</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">✨</div>
+                        <h4>Résultats Visibles</h4>
+                        <p>Notre expertise garantit des transformations tangibles, peau et cheveux inclus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking">
+            <div class="container">
+                <h2>Prise de Rendez-vous</h2>
+                <p class="section-subtitle">Réservez votre moment de détente dès maintenant. Confirmation immédiate.</p>
+                
+                <div class="booking-form">
+                    <form action="#" onsubmit="handleBooking(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="booking-name">Nom Complet</label>
+                            <input type="text" id="booking-name" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="booking-service">Service Souhaité</label>
+                            <select id="booking-service" class="form-control">
+                                <option value="Pédicure">Pédicure</option>
+                                <option value="Massage">Massage</option>
+                                <option value="Coiffure">Coiffure / Soins Capillaires</option>
+                                <option value="Achat Produit">Achat de produit Nutricosmétique</option>
+                                <option value="Autre">Autre demande</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="booking-date">Date Souhaitée</label>
+                            <input type="date" id="booking-date" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="booking-message">Message (Optionnel)</label>
+                            <textarea id="booking-message" class="form-control" rows="3" placeholder="Précisez l'heure ou tout autre besoin..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold" style="width: 100%;">Confirmer sur WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer & Contact -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>TIFFANY CORPORATED</h4>
+                    <p style="margin-bottom: 20px;">La beauté en pleine conscience. Votre partenaire de confiance à Lomé pour une beauté intérieure et extérieure.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/Tiffany Corporated" title="Facebook">F</a>
+                        <a href="https://www.instagram.com/tiffanycorporated" title="Instagram">I</a>
+                        <a href="https://www.tiktok.com/@tiffanycorporated?is_from_webapp=1&sender_device=pc" title="TikTok">T</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Direct</h4>
+                    <ul class="footer-links">
+                        <li>📍 Lomé - TOGO</li>
+                        <li><a href="https://maps.app.goo.gl/NSw8dSueEYhyzeeC7" target="_blank" rel="noopener" style="text-decoration: underline;">Voir sur la carte</a></li>
+                        <li>📞 +228 79 67 45 46</li>
+                        <li>✉️ contact@tiffanycorporated.com</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Horaires</h4>
+                    <ul class="footer-links">
+                        <li>Lundi – Samedi</li>
+                        <li>08h00 – 19h00</li>
+                        <li>Dimanche : Fermé</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Tiffany Corporated. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/22879674546" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactez-nous sur WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.5 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg>
+    </a>
+
+    <!-- Simple JS for Mobile Menu & Booking Logic -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Handle Booking Form -> Redirect to WhatsApp
+        function handleBooking(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('booking-name').value;
+            const service = document.getElementById('booking-service').value;
+            const date = document.getElementById('booking-date').value;
+            const message = document.getElementById('booking-message').value;
+
+            const text = `Bonjour TIFFANY CORPORATED, je souhaite prendre rendez-vous.%0A%0A*Nom :* ${name}%0A*Service :* ${service}%0A*Date souhaitée :* ${date}%0A*Message :* ${message}`;
+            
+            window.open(`https://wa.me/22879674546?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
