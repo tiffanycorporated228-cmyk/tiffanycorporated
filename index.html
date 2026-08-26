@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: http:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+=======
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://wa.me; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://wa.me;">
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
     <meta name="description" content="Tiffanya Serenis  - La beaute en pleine conscience. Nutricosmetique, pedicure, massage et coiffure a Lome, Togo.">
     <title>Tiffanya Serenis  | Beaute & Bien-etre</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet" integrity="sha384-SrTj5AJNZ6DOAJk+UnzN97ip0XOx9koWFZf4bN5Tu3ml12jlCP+eESCNEqWnAu/N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
 
     <style>
         :root {
@@ -124,6 +131,7 @@
             letter-spacing: 2px;
         }
         .logo-span { color: var(--color-gold); }
+        .logo-sub { color: #999; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 300; margin-top: 2px; }
         
         nav ul { display: flex; list-style: none; gap: 35px; }
         nav a { color: var(--color-white); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: var(--transition); display: flex; align-items: center; gap: 6px; }
@@ -292,6 +300,9 @@
         .whatsapp-modal h3 { margin-bottom: 25px; font-size: 1.4rem; }
         .whatsapp-region-btns { display: flex; flex-direction: column; gap: 15px; }
         .whatsapp-region-btns .btn { width: 100%; }
+        .whatsapp-africa-sub { display: none; flex-direction: column; gap: 12px; margin-top: 10px; padding-top: 15px; border-top: 1px solid #eee; }
+        .whatsapp-africa-sub.active { display: flex; }
+        .whatsapp-africa-sub .btn { font-size: 0.9rem; padding: 12px 20px; }
 
         /* Admin Modal */
         .admin-modal { overflow-y: auto; align-items: flex-start; padding: 20px 0; }
@@ -370,6 +381,7 @@
                 <img src="logo.png" alt="Logo Tiffanya Serenis " class="logo-img">
                 <div class="logo-text">
                     <span class="logo-main">Tiffanya <span class="logo-span">Serenis</span></span>
+                    <span class="logo-sub">Corporate Holding</span>
                 </div>
             </a>
             
@@ -455,11 +467,19 @@
                         <div class="form-grid">
                             <div class="form-group">
                                 <label class="form-label"><i class="fas fa-user" aria-hidden="true"></i> Nom <span class="required">*</span></label>
+<<<<<<< HEAD
                                 <input type="text" class="form-input" id="rdv-nom" placeholder="Votre nom" required maxlength="60" autocomplete="name">
                             </div>
                             <div class="form-group">
                                 <label class="form-label"><i class="fas fa-user" aria-hidden="true"></i> Prenom <span class="required">*</span></label>
                                 <input type="text" class="form-input" id="rdv-prenom" placeholder="Votre prenom" required maxlength="60" autocomplete="given-name">
+=======
+                                <input type="text" class="form-input" id="rdv-nom" placeholder="Votre nom" required maxlength="50" autocomplete="family-name" pattern="[a-zA-ZÀ-ÿ\s\-']+" title="Lettres uniquement">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"><i class="fas fa-user" aria-hidden="true"></i> Prenom <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="rdv-prenom" placeholder="Votre prenom" required maxlength="50" autocomplete="given-name" pattern="[a-zA-ZÀ-ÿ\s\-']+" title="Lettres uniquement">
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
                             </div>
                             <div class="form-group form-group-full">
                                 <label class="form-label"><i class="fas fa-concierge-bell" aria-hidden="true"></i> Service souhaite <span class="required">*</span></label>
@@ -493,7 +513,11 @@
                             </div>
                             <div class="form-group form-group-full">
                                 <label class="form-label"><i class="fas fa-comment" aria-hidden="true"></i> Message</label>
+<<<<<<< HEAD
                                 <textarea class="form-textarea" id="rdv-message" placeholder="Precisez vos besoins..." maxlength="400"></textarea>
+=======
+                                <textarea class="form-textarea" id="rdv-message" placeholder="Precisez vos besoins..." maxlength="500"></textarea>
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
                             </div>
                         </div>
                         <button type="submit" class="submit-btn"><i class="fab fa-whatsapp" aria-hidden="true"></i> Envoyer via WhatsApp</button>
@@ -551,7 +575,11 @@
                         <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+22879674546">+228 79 67 45 46</a></li>
                         <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+229768281867">+229 76 828 18 67</a></li>
                         <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+41768281867">+41 76 828 18 67</a></li>
+<<<<<<< HEAD
                         <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:tiffanycorporated228@gmail.com">tiffanycorporated228@gmail.com</a></li>
+=======
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:tiffanycorporated228@gmail.com" rel="noopener noreferrer">tiffanycorporated228@gmail.com</a></li>
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -577,10 +605,17 @@
             <h3><i class="fas fa-lock" aria-hidden="true"></i> Acces Admin</h3>
             <p>Entrez le code PIN</p>
             <div class="pin-input">
+<<<<<<< HEAD
                 <input type="password" class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off" data-index="0" aria-label="Chiffre 1">
                 <input type="password" class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off" data-index="1" aria-label="Chiffre 2">
                 <input type="password" class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off" data-index="2" aria-label="Chiffre 3">
                 <input type="password" class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]" autocomplete="off" data-index="3" aria-label="Chiffre 4">
+=======
+                <input type="password" class="pin-digit" maxlength="1" data-index="0" aria-label="Chiffre 1" autocomplete="off" inputmode="numeric">
+                <input type="password" class="pin-digit" maxlength="1" data-index="1" aria-label="Chiffre 2" autocomplete="off" inputmode="numeric">
+                <input type="password" class="pin-digit" maxlength="1" data-index="2" aria-label="Chiffre 3" autocomplete="off" inputmode="numeric">
+                <input type="password" class="pin-digit" maxlength="1" data-index="3" aria-label="Chiffre 4" autocomplete="off" inputmode="numeric">
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
             </div>
             <div class="pin-error" id="pinError" role="alert"></div>
             <div style="display: flex; gap: 15px; justify-content: center;">
@@ -596,7 +631,12 @@
             <button class="modal-close" onclick="closeWhatsAppModal()">&times;</button>
             <h3><i class="fab fa-whatsapp" style="color: #25D366;"></i> Choisissez votre region</h3>
             <div class="whatsapp-region-btns">
-                <a href="#" id="africaLink" class="btn btn-whatsapp btn-block"><i class="fas fa-globe-africa"></i> Afrique (+228)</a>
+                <button class="btn btn-whatsapp btn-block" onclick="toggleAfricaCountries()"><i class="fas fa-globe-africa"></i> Afrique</button>
+                <div class="whatsapp-africa-sub" id="africaCountries">
+                    <a href="#" id="togoLink" class="btn btn-whatsapp btn-block btn-sm"><i class="fas fa-map-marker-alt"></i> Togo (+228)</a>
+                    <a href="#" id="beninLink" class="btn btn-whatsapp btn-block btn-sm"><i class="fas fa-map-marker-alt"></i> Benin (+229)</a>
+                    <button class="btn btn-outline btn-sm" onclick="toggleAfricaCountries()" style="align-self:center;"><i class="fas fa-arrow-left"></i> Retour</button>
+                </div>
                 <a href="#" id="europeLink" class="btn btn-outline btn-block"><i class="fas fa-globe-europe"></i> Europe (+41)</a>
             </div>
         </div>
@@ -694,6 +734,7 @@
     </div>
 
     <script>
+<<<<<<< HEAD
         // ============================================
         // MODULE SECURITE (definir avant toute utilisation)
         // ============================================
@@ -858,6 +899,52 @@
                 localStorage.setItem(key, JSON.stringify(payload));
                 return true;
             } catch (err) { console.warn('Ecriture impossible :', err); return false; }
+=======
+        /* ===== SECURITE : PIN hashé (SHA-256), numéros obfusqués ===== */
+        const ADMIN_PIN_HASH = '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4';
+        const _waParts = ['22','87','96','74','54','6'];
+        const _waPartsBj = ['22','90','16','74','52','461'];
+        const _waPartsEu = ['41','76','82','81','86','7'];
+        let _pinAttempts = 0;
+        const MAX_PIN_ATTEMPTS = 5;
+        let _pinLockUntil = 0;
+
+        /* Reconstruction sécurisée des numéros (pas en clair dans le source) */
+        function _getWATogo() { return _waParts.join(''); }
+        function _getWABenin() { return _waPartsBj.join(''); }
+        function _getWAEurope() { return _waPartsEu.join(''); }
+
+        /* ===== Hachage SHA-256 ===== */
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        /* ===== Échappement HTML renforcé ===== */
+        function escapeHtml(text) {
+            if (typeof text !== 'string') return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
+        }
+
+        /* ===== Validation d'URL d'image (bloque javascript:, data:, vbscript:) ===== */
+        function sanitizeImageUrl(url) {
+            if (typeof url !== 'string' || !url.trim()) return '';
+            const trimmed = url.trim();
+            if (/^(https?:\/\/|\.\.?\/|[a-zA-Z0-9_\-]+\.)/i.test(trimmed)) {
+                return trimmed;
+            }
+            return '';
+        }
+
+        /* ===== Sanitisation des entrées formulaire ===== */
+        function sanitizeInput(value) {
+            if (typeof value !== 'string') return '';
+            return value.replace(/[<>"'&]/g, '').trim().substring(0, 200);
         }
 
         function scrollToSection(id) {
@@ -865,8 +952,16 @@
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
+        /* ===== Validation des données localStorage ===== */
+        function isValidProduct(p) {
+            return p && typeof p.id === 'number' && typeof p.name === 'string' && p.name.length > 0 && p.name.length <= 100;
+        }
+        function isValidService(s) {
+            return s && typeof s.id === 'number' && typeof s.name === 'string' && s.name.length > 0 && s.name.length <= 100;
+        }
+
         // ============================================
-        // TOUS LES PRODUITS (19 PRODUITS)
+        // PRODUITS PAR DEFAUT
         // ============================================
         const defaultProducts = [
             { id: 1, name: "Glutathione de Pissenlit", description: "Complement alimentaire a base de glutathion et de pissenlit. Proprietes antioxydantes puissantes.", price: "Sur demande", image: "pissenli (2).png", tag: "Antioxydant", category: "Beaute & Peau", inStock: true },
@@ -897,18 +992,48 @@
             { id: 4, name: "Espace Coiffure", description: "Soin capillaire profond et coiffures protectrices.", details: "Soins capillaires\nTresses, Nattes\nBrushing", duration: "Variable", price: "Sur demande", image: "coif.png", crossImage: "", available: true, icon: "fa-cut" }
         ];
 
+<<<<<<< HEAD
         // Stockage securise (validation + checksum d'integrite)
         function getProducts() { return loadSecure({ key: 'tiffany_products_v2', legacyKey: 'tiffany_products', validator: validateProduct, maxItems: 200, fallback: defaultProducts }); }
         function getServices() { return loadSecure({ key: 'tiffany_services_v2', legacyKey: 'tiffany_services', validator: validateService, maxItems: 50, fallback: defaultServices }); }
         function saveProducts(p) { persistSecure('tiffany_products_v2', Array.isArray(p) ? p.map(validateProduct).filter(Boolean) : []); }
         function saveServices(s) { persistSecure('tiffany_services_v2', Array.isArray(s) ? s.map(validateService).filter(Boolean) : []); }
+=======
+        /* ===== Storage avec validation ===== */
+        function getProducts() {
+            try {
+                const data = localStorage.getItem('tiffany_products');
+                if (!data) return defaultProducts;
+                const parsed = JSON.parse(data);
+                if (!Array.isArray(parsed)) return defaultProducts;
+                const valid = parsed.filter(isValidProduct);
+                return valid.length > 0 ? valid : defaultProducts;
+            } catch (e) {
+                return defaultProducts;
+            }
+        }
+        function getServices() {
+            try {
+                const data = localStorage.getItem('tiffany_services');
+                if (!data) return defaultServices;
+                const parsed = JSON.parse(data);
+                if (!Array.isArray(parsed)) return defaultServices;
+                const valid = parsed.filter(isValidService);
+                return valid.length > 0 ? valid : defaultServices;
+            } catch (e) {
+                return defaultServices;
+            }
+        }
+        function saveProducts(p) { try { localStorage.setItem('tiffany_products', JSON.stringify(p)); } catch(e) { console.warn('Storage error'); } }
+        function saveServices(s) { try { localStorage.setItem('tiffany_services', JSON.stringify(s)); } catch(e) { console.warn('Storage error'); } }
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
 
-        // Render Products - BOUTON NOIR/BLANC
+        /* ===== Render Products ===== */
         function renderProducts() {
             const products = getProducts();
             const container = document.getElementById('products-container');
             if (!container) return;
-            
+
             const categories = {};
             products.forEach(p => { const cat = p.category || 'Autres'; if (!categories[cat]) categories[cat] = []; categories[cat].push(p); });
 
@@ -917,17 +1042,21 @@
                 html += '<div class="category-header"><div class="category-icon"><i class="fas fa-folder"></i></div><h3>' + escapeHtml(cat) + '</h3></div>';
                 html += '<div class="product-grid">';
                 categories[cat].forEach(p => {
+                    const safeImg = sanitizeImageUrl(p.image);
                     html += '<div class="product-card">';
                     if (p.tag) html += '<div class="product-badge"><i class="fas fa-star"></i> ' + escapeHtml(p.tag) + '</div>';
                     html += '<div class="product-img-container">';
+<<<<<<< HEAD
                     if (p.image) html += '<img src="' + escapeHtml(sanitizeUrl(p.image)) + '" alt="' + escapeHtml(p.name) + '" onerror="this.style.display=\'none\'">';
+=======
+                    if (safeImg) html += '<img src="' + escapeHtml(safeImg) + '" alt="' + escapeHtml(p.name) + '" loading="lazy" onerror="this.style.display=\'none\'">';
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
                     else html += '<i class="fas fa-image product-placeholder"></i>';
                     html += '</div>';
                     html += '<div class="product-info"><div class="product-tag"><i class="fas fa-folder"></i> ' + escapeHtml(p.category || 'Produit') + '</div>';
                     html += '<h4 class="product-title">' + escapeHtml(p.name) + '</h4>';
                     html += '<p class="product-desc">' + escapeHtml(p.description) + '</p>';
                     html += '<div class="product-price"><i class="fas fa-tag"></i> ' + escapeHtml(p.price || 'Sur demande') + '</div>';
-                    // BOUTON AVEC CLASSE btn-commander (NOIR/BLANC)
                     html += '<button class="btn btn-commander btn-block btn-sm" data-product="' + escapeHtml(p.name) + '"><i class="fas fa-shopping-cart"></i> Commander</button></div></div>';
                 });
                 html += '</div>';
@@ -936,33 +1065,43 @@
             container.querySelectorAll('[data-product]').forEach(btn => { btn.addEventListener('click', function() { openWhatsAppModal('Bonjour, je veux commander: ' + this.getAttribute('data-product')); }); });
         }
 
-        // Render Services
+        /* ===== Render Services ===== */
         function renderServices() {
             const services = getServices();
             const container = document.getElementById('services-container');
             if (!container) return;
             let html = '';
             services.forEach(s => {
+                const safeImg = sanitizeImageUrl(s.image);
                 html += '<div class="service-block"><div class="service-content"><div class="service-header">';
+<<<<<<< HEAD
                 html += '<div class="service-icon"><i class="fas ' + escapeHtml(ICON_WHITELIST.indexOf(s.icon) !== -1 ? s.icon : 'fa-spa') + '"></i></div><h3>' + escapeHtml(s.name) + '</h3></div>';
+=======
+                html += '<div class="service-icon"><i class="fas ' + escapeHtml(s.icon || 'fa-spa') + '"></i></div><h3>' + escapeHtml(s.name) + '</h3></div>';
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
                 html += '<p>' + escapeHtml(s.description) + '</p>';
                 if (s.details) { html += '<ul class="service-list">'; s.details.split('\n').forEach(d => { if(d.trim()) html += '<li><i class="fas fa-check"></i>' + escapeHtml(d.trim()) + '</li>'; }); html += '</ul>'; }
                 html += '<div class="service-meta"><div class="service-meta-item"><i class="fas fa-clock"></i> ' + escapeHtml(s.duration || 'Variable') + '</div>';
                 html += '<div class="service-meta-item"><i class="fas fa-tag"></i> ' + escapeHtml(s.price || 'Sur demande') + '</div></div><br>';
                 html += '<button class="btn btn-gold" data-service="' + escapeHtml(s.name) + '"><i class="fas fa-calendar-check"></i> Reserver</button></div>';
+<<<<<<< HEAD
                 html += '<div class="service-visual">'; if (s.image) html += '<img src="' + escapeHtml(sanitizeUrl(s.image)) + '" class="service-main-img" alt="' + escapeHtml(s.name) + '">'; html += '</div></div>';
+=======
+                html += '<div class="service-visual">'; if (safeImg) html += '<img src="' + escapeHtml(safeImg) + '" class="service-main-img" loading="lazy">'; html += '</div></div>';
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
             });
             container.innerHTML = html;
-            container.querySelectorAll('[data-service]').forEach(btn => { 
-                btn.addEventListener('click', function() { 
+            container.querySelectorAll('[data-service]').forEach(btn => {
+                btn.addEventListener('click', function() {
                     const serviceName = this.getAttribute('data-service');
                     const serviceSelect = document.getElementById('rdv-service');
                     if (serviceSelect) { serviceSelect.value = serviceName; }
-                    scrollToSection('rendezvous'); 
-                }); 
+                    scrollToSection('rendezvous');
+                });
             });
         }
 
+<<<<<<< HEAD
         // Appointment (entrees nettoiees et validees)
         function submitAppointment(e) {
             e.preventDefault();
@@ -981,21 +1120,63 @@
             let msg = 'Rendez-vous: ' + prenom + ' ' + nom + '\nService: ' + service + '\nDate: ' + dateVal + ' ' + heure;
             if (message) msg += '\nMessage: ' + message;
             if (msg.length > 700) msg = msg.substring(0, 697) + '...';
+=======
+        /* ===== Appointment avec validation renforcée ===== */
+        function submitAppointment(e) {
+            e.preventDefault();
+            const nom = sanitizeInput(document.getElementById('rdv-nom').value);
+            const prenom = sanitizeInput(document.getElementById('rdv-prenom').value);
+            const service = document.getElementById('rdv-service').value;
+            const date = document.getElementById('rdv-date').value;
+            const heure = document.getElementById('rdv-heure').value;
+            const message = sanitizeInput(document.getElementById('rdv-message').value);
+
+            if (!nom || !prenom || !service || !date || !heure) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+
+            const today = new Date().toISOString().split('T')[0];
+            if (date < today) {
+                alert('La date ne peut pas être dans le passé.');
+                return;
+            }
+
+            const msg = 'Rendez-vous: ' + prenom + ' ' + nom + '\nService: ' + service + '\nDate: ' + date + ' ' + heure + (message ? '\nMessage: ' + message : '');
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
             openWhatsAppModal(msg);
             showSuccessModal();
             document.getElementById('appointmentForm').reset();
         }
 
-        // WhatsApp
+        /* ===== WhatsApp ===== */
+        function toggleAfricaCountries() {
+            document.getElementById('africaCountries').classList.toggle('active');
+        }
         function openWhatsAppModal(m) {
-            document.getElementById('africaLink').href = 'https://wa.me/' + WHATSAPP_AFRICA + '?text=' + encodeURIComponent(m);
-            document.getElementById('europeLink').href = 'https://wa.me/' + WHATSAPP_EUROPE + '?text=' + encodeURIComponent(m);
+            const safeMsg = typeof m === 'string' ? m.substring(0, 1000) : '';
+            /* Réinitialiser l'état du sous-menu Afrique */
+            document.getElementById('africaCountries').classList.remove('active');
+            /* Mettre à jour les liens avec les numéros sécurisés */
+            document.getElementById('togoLink').href = 'https://wa.me/' + _getWATogo() + '?text=' + encodeURIComponent(safeMsg);
+            document.getElementById('beninLink').href = 'https://wa.me/' + _getWABenin() + '?text=' + encodeURIComponent(safeMsg);
+            document.getElementById('europeLink').href = 'https://wa.me/' + _getWAEurope() + '?text=' + encodeURIComponent(safeMsg);
+            /* Sécuriser les liens externes */
+            ['togoLink','beninLink','europeLink'].forEach(id => {
+                const el = document.getElementById(id);
+                el.setAttribute('target', '_blank');
+                el.setAttribute('rel', 'noopener noreferrer');
+            });
             document.getElementById('whatsappModal').classList.add('active');
         }
-        function closeWhatsAppModal() { document.getElementById('whatsappModal').classList.remove('active'); }
+        function closeWhatsAppModal() {
+            document.getElementById('whatsappModal').classList.remove('active');
+            document.getElementById('africaCountries').classList.remove('active');
+        }
         function showSuccessModal() { document.getElementById('successModal').classList.add('active'); }
         function closeSuccessModal() { document.getElementById('successModal').classList.remove('active'); }
 
+<<<<<<< HEAD
         // Admin (authentification durcie)
         function openPinModal() {
             document.getElementById('pinModal').classList.add('active');
@@ -1063,13 +1244,66 @@
                 alert('Session administrateur fermee automatiquement apres 15 minutes d\'inactivite.');
             }
         }, 20000);
+=======
+        /* ===== Admin avec PIN hashé + rate limiting ===== */
+        function openPinModal() {
+            document.getElementById('pinModal').classList.add('active');
+            document.getElementById('pinError').textContent = '';
+            document.querySelectorAll('.pin-digit').forEach(i => i.value = '');
+            document.querySelector('.pin-digit').focus();
+        }
+        function closePinModal() { document.getElementById('pinModal').classList.remove('active'); }
+
+        async function verifyPin() {
+            /* Vérification du verrouillage */
+            const now = Date.now();
+            if (now < _pinLockUntil) {
+                const waitSecs = Math.ceil((_pinLockUntil - now) / 1000);
+                document.getElementById('pinError').textContent = 'Compte bloqué. Réessayez dans ' + waitSecs + 's.';
+                return;
+            }
+
+            let pin = '';
+            document.querySelectorAll('.pin-digit').forEach(d => pin += d.value);
+
+            /* Validation : exactement 4 chiffres */
+            if (!/^\d{4}$/.test(pin)) {
+                document.getElementById('pinError').textContent = 'Entrez 4 chiffres.';
+                return;
+            }
+
+            /* Hachage et comparaison */
+            const hash = await sha256(pin);
+            if (hash === ADMIN_PIN_HASH) {
+                _pinAttempts = 0;
+                closePinModal();
+                toggleAdmin();
+            } else {
+                _pinAttempts++;
+                if (_pinAttempts >= MAX_PIN_ATTEMPTS) {
+                    _pinLockUntil = now + (5 * 60 * 1000); /* Bloqué 5 minutes */
+                    document.getElementById('pinError').textContent = 'Trop de tentatives. Accès bloqué 5 min.';
+                    document.querySelectorAll('.pin-digit').forEach(d => d.disabled = true);
+                    setTimeout(() => {
+                        document.querySelectorAll('.pin-digit').forEach(d => d.disabled = false);
+                        _pinAttempts = 0;
+                    }, 5 * 60 * 1000);
+                } else {
+                    const remaining = MAX_PIN_ATTEMPTS - _pinAttempts;
+                    document.getElementById('pinError').textContent = 'PIN incorrect. ' + remaining + ' tentative(s) restante(s).';
+                }
+            }
+        }
+        function toggleAdmin() { const m = document.getElementById('adminModal'); m.classList.toggle('active'); if (m.classList.contains('active')) { renderAdminProducts(); renderAdminServices(); } }
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
         function switchTab(tab) { document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active')); event.target.classList.add('active'); document.getElementById('products-tab').style.display = tab === 'products' ? 'block' : 'none'; document.getElementById('services-tab').style.display = tab === 'services' ? 'block' : 'none'; }
 
-        // Admin Products
+        /* ===== Admin Products ===== */
         function renderAdminProducts() {
             const products = getProducts();
             const list = document.getElementById('products-list');
             document.getElementById('products-count').textContent = products.length;
+<<<<<<< HEAD
             list.innerHTML = products.map(p => '<div class="admin-item"><div class="admin-item-img"><i class="fas fa-image" style="color:#555"></i></div><div class="admin-item-info"><h4>' + escapeHtml(p.name) + '</h4><p>' + escapeHtml(String(p.description || '').substring(0, 60)) + '...</p><span class="admin-item-tag">' + escapeHtml(p.category || '') + '</span></div><div class="admin-item-actions"><button class="btn-edit" onclick="editProduct(' + Number(p.id) + ')">Modifier</button><button class="btn-delete" onclick="deleteProduct(' + Number(p.id) + ')">Supprimer</button></div></div>').join('');
         }
         function saveProduct() {
@@ -1082,6 +1316,18 @@
             const price = cleanText(document.getElementById('product-price').value, 60);
             const tag = cleanText(document.getElementById('product-tag').value, 40);
             const image = sanitizeUrl(document.getElementById('product-image').value);
+=======
+            list.innerHTML = products.map(p => '<div class="admin-item"><div class="admin-item-img"><i class="fas fa-image" style="color:#555"></i></div><div class="admin-item-info"><h4>' + escapeHtml(p.name) + '</h4><p>' + escapeHtml((p.description||'').substring(0,60)) + '...</p><span class="admin-item-tag">' + escapeHtml(p.category||'') + '</span></div><div class="admin-item-actions"><button class="btn-edit" onclick="editProduct(' + p.id + ')">Modifier</button><button class="btn-delete" onclick="deleteProduct(' + p.id + ')">Supprimer</button></div></div>').join('');
+        }
+        function saveProduct() {
+            const id = document.getElementById('product-id').value;
+            const name = sanitizeInput(document.getElementById('product-name').value);
+            const desc = sanitizeInput(document.getElementById('product-desc').value);
+            const cat = sanitizeInput(document.getElementById('product-category').value);
+            const price = sanitizeInput(document.getElementById('product-price').value);
+            const tag = sanitizeInput(document.getElementById('product-tag').value);
+            const image = sanitizeImageUrl(document.getElementById('product-image').value.trim());
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
             const stock = document.getElementById('product-stock').checked;
             if (!name) return alert('Nom requis');
             let products = getProducts();
@@ -1095,22 +1341,43 @@
         function resetProductForm() { ['id','name','desc','price','tag','image'].forEach(f => document.getElementById('product-' + f).value = ''); document.getElementById('product-stock').checked = true; document.getElementById('product-form-title').innerHTML = '<i class="fas fa-plus-circle"></i> Ajouter'; document.getElementById('cancel-product-btn').style.display = 'none'; }
         function resetProductsToDefault() { if(!confirm('Reinitialiser tous les produits ?')) return; try { localStorage.removeItem('tiffany_products_v2'); localStorage.removeItem('tiffany_products'); } catch (err) {} renderAdminProducts(); renderProducts(); alert('Produits reinitialises !'); }
 
+<<<<<<< HEAD
         // Admin Services
         function renderAdminServices() { const services = getServices(); const list = document.getElementById('services-list'); list.innerHTML = services.map(s => '<div class="admin-item"><div class="admin-item-img"><i class="fas fa-spa" style="color:#555"></i></div><div class="admin-item-info"><h4>' + escapeHtml(s.name) + '</h4><p>' + escapeHtml(String(s.description || '').substring(0, 50)) + '...</p></div><div class="admin-item-actions"><button class="btn-edit" onclick="editService(' + Number(s.id) + ')">Modifier</button><button class="btn-delete" onclick="deleteService(' + Number(s.id) + ')">Supprimer</button></div></div>').join(''); }
         function saveService() { const id = document.getElementById('service-id').value; const name = cleanText(document.getElementById('service-name').value, 120); const desc = cleanText(document.getElementById('service-desc').value, 400); const details = String(document.getElementById('service-details').value || '').split('\n').slice(0, 14).map(l => cleanText(l, 100)).filter(l => l).join('\n'); const duration = cleanText(document.getElementById('service-duration').value, 60); const price = cleanText(document.getElementById('service-price').value, 60); const image = sanitizeUrl(document.getElementById('service-image').value); const available = document.getElementById('service-available').checked; if (!name) return alert('Nom requis'); let services = getServices(); if (!id && services.length >= 50) return alert('Nombre maximal de services atteint (50). Supprimez des elements pour en ajouter.'); if (id) services = services.map(s => s.id == id ? {...s, name, description:desc, details, duration, price, image, available} : s); else { const newId = services.length ? Math.max(...services.map(s=>Number(s.id)||0)) + 1 : 1; services.push(validateService({id:newId, name, description:desc, details, duration, price, image, available, icon:'fa-spa'})); } saveServices(services); renderAdminServices(); renderServices(); resetServiceForm(); alert('Enregistre !'); }
+=======
+        /* ===== Admin Services ===== */
+        function renderAdminServices() { const services = getServices(); const list = document.getElementById('services-list'); list.innerHTML = services.map(s => '<div class="admin-item"><div class="admin-item-img"><i class="fas fa-spa" style="color:#555"></i></div><div class="admin-item-info"><h4>' + escapeHtml(s.name) + '</h4><p>' + escapeHtml((s.description||'').substring(0,50)) + '...</p></div><div class="admin-item-actions"><button class="btn-edit" onclick="editService(' + s.id + ')">Modifier</button><button class="btn-delete" onclick="deleteService(' + s.id + ')">Supprimer</button></div></div>').join(''); }
+        function saveService() { const id = document.getElementById('service-id').value; const name = sanitizeInput(document.getElementById('service-name').value); const desc = sanitizeInput(document.getElementById('service-desc').value); const details = sanitizeInput(document.getElementById('service-details').value); const duration = sanitizeInput(document.getElementById('service-duration').value); const price = sanitizeInput(document.getElementById('service-price').value); const image = sanitizeImageUrl(document.getElementById('service-image').value.trim()); const available = document.getElementById('service-available').checked; if (!name) return alert('Nom requis'); let services = getServices(); if (id) services = services.map(s => s.id == id ? {...s, name, description:desc, details, duration, price, image, available} : s); else { const newId = services.length ? Math.max(...services.map(s=>s.id)) + 1 : 1; services.push({id:newId, name, description:desc, details, duration, price, image, available, icon:'fa-spa'}); } saveServices(services); renderAdminServices(); renderServices(); resetServiceForm(); alert('Enregistre !'); }
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
         function editService(id) { const s = getServices().find(x => x.id === id); if(!s) return; document.getElementById('service-id').value = s.id; document.getElementById('service-name').value = s.name; document.getElementById('service-desc').value = s.description||''; document.getElementById('service-details').value = s.details||''; document.getElementById('service-duration').value = s.duration||''; document.getElementById('service-price').value = s.price||''; document.getElementById('service-image').value = s.image||''; document.getElementById('service-available').checked = s.available; document.getElementById('service-form-title').innerHTML = '<i class="fas fa-edit"></i> Modifier'; document.getElementById('cancel-service-btn').style.display = 'inline-flex'; }
         function deleteService(id) { if(!adminUnlocked) return alert('Acces refuse.'); if(!confirm('Supprimer ce service ?')) return; const target = Number(id); saveServices(getServices().filter(s => Number(s.id) !== target)); renderAdminServices(); renderServices(); }
         function resetServiceForm() { ['id','name','desc','details','duration','price','image'].forEach(f => document.getElementById('service-' + f).value = ''); document.getElementById('service-available').checked = true; document.getElementById('service-form-title').innerHTML = '<i class="fas fa-plus-circle"></i> Ajouter'; document.getElementById('cancel-service-btn').style.display = 'none'; }
 
-        // Menu
+        /* ===== Menu ===== */
         function toggleMenu() { document.getElementById('main-nav').classList.toggle('active'); }
 
-        // Init
+        /* ===== Init ===== */
         document.addEventListener('DOMContentLoaded', function() {
             renderProducts(); renderServices();
             const dateInput = document.getElementById('rdv-date'); if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
             document.querySelectorAll('.modal-overlay').forEach(m => { m.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); }); });
+<<<<<<< HEAD
             document.querySelectorAll('.pin-digit').forEach((input, idx, arr) => { input.addEventListener('input', function() { this.value = this.value.replace(/\D/g, ''); if (this.value.length === 1 && idx < 3) arr[idx+1].focus(); }); input.addEventListener('keydown', function(e) { if (e.key === 'Backspace' && !this.value && idx > 0) arr[idx-1].focus(); }); });
+=======
+            document.querySelectorAll('.pin-digit').forEach((input, idx, arr) => {
+                input.addEventListener('input', function() {
+                    /* Forcer uniquement les chiffres */
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value.length === 1 && idx < 3) arr[idx+1].focus();
+                });
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && !this.value && idx > 0) arr[idx-1].focus();
+                });
+                /* Interdire le copier-coller dans les champs PIN */
+                input.addEventListener('paste', function(e) { e.preventDefault(); });
+            });
+>>>>>>> 9579ee6 (Security: renforcement securite des donnees + ajout choix pays WhatsApp (Togo/Benin) + logo Corporate Holding)
             document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active')); });
             // Suivi d'activite : rearmement du compte a rebours de fermeture automatique admin
             const adminModal = document.getElementById('adminModal');
