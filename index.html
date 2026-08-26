@@ -559,7 +559,11 @@
                         <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+22879674546">+228 79 67 45 46</a></li>
                         <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+2290167452461">+229 01 67 45 24 61</a></li>
                         <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+41768281867">+41 76 828 18 67</a></li>
+<<<<<<< HEAD
                         <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:contact@tiffanyaserenis.com" rel="noopener noreferrer">tiffanycorporated228@gmail.com</a></li>
+=======
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:contact@tiffanyaserenis.com" rel="noopener noreferrer">contact@tiffanyaserenis.com</a></li>
+>>>>>>> 407ecf2 (Email mis a jour + choix pays immediat apres formulaire RDV)
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -606,11 +610,11 @@
             <div class="whatsapp-region-btns">
                 <button class="btn btn-whatsapp btn-block" onclick="toggleAfricaCountries()"><i class="fas fa-globe-africa"></i> Afrique</button>
                 <div class="whatsapp-africa-sub" id="africaCountries">
-                    <a href="#" id="togoLink" class="btn btn-whatsapp btn-block btn-sm"><i class="fas fa-map-marker-alt"></i> Togo (+228)</a>
-                    <a href="#" id="beninLink" class="btn btn-whatsapp btn-block btn-sm"><i class="fas fa-map-marker-alt"></i> Benin (+229)</a>
+                    <a href="#" id="togoLink" class="btn btn-whatsapp btn-block btn-sm" onclick="onCountryClicked()"><i class="fas fa-map-marker-alt"></i> Togo (+228)</a>
+                    <a href="#" id="beninLink" class="btn btn-whatsapp btn-block btn-sm" onclick="onCountryClicked()"><i class="fas fa-map-marker-alt"></i> Benin (+229)</a>
                     <button class="btn btn-outline btn-sm" onclick="toggleAfricaCountries()" style="align-self:center;"><i class="fas fa-arrow-left"></i> Retour</button>
                 </div>
-                <a href="#" id="europeLink" class="btn btn-outline btn-block"><i class="fas fa-globe-europe"></i> Europe (+41)</a>
+                <a href="#" id="europeLink" class="btn btn-outline btn-block" onclick="onCountryClicked()"><i class="fas fa-globe-europe"></i> Europe (+41)</a>
             </div>
         </div>
     </div>
@@ -715,6 +719,7 @@
         let _pinAttempts = 0;
         const MAX_PIN_ATTEMPTS = 5;
         let _pinLockUntil = 0;
+        let _fromFormRDV = false;
 
         /* Reconstruction sécurisée des numéros (pas en clair dans le source) */
         function _getWATogo() { return _waParts.join(''); }
@@ -909,19 +914,16 @@
             }
 
             const msg = 'Rendez-vous: ' + prenom + ' ' + nom + '\nService: ' + service + '\nDate: ' + date + ' ' + heure + (message ? '\nMessage: ' + message : '');
-            openWhatsAppModal(msg);
-            showSuccessModal();
-            document.getElementById('appointmentForm').reset();
+            openWhatsAppModal(msg, true);
+            _fromFormRDV = true;
         }
 
         /* ===== WhatsApp ===== */
         function toggleAfricaCountries() {
             document.getElementById('africaCountries').classList.toggle('active');
         }
-        function openWhatsAppModal(m) {
+        function openWhatsAppModal(m, showCountriesDirectly) {
             const safeMsg = typeof m === 'string' ? m.substring(0, 1000) : '';
-            /* Réinitialiser l'état du sous-menu Afrique */
-            document.getElementById('africaCountries').classList.remove('active');
             /* Mettre à jour les liens avec les numéros sécurisés */
             document.getElementById('togoLink').href = 'https://wa.me/' + _getWATogo() + '?text=' + encodeURIComponent(safeMsg);
             document.getElementById('beninLink').href = 'https://wa.me/' + _getWABenin() + '?text=' + encodeURIComponent(safeMsg);
@@ -932,7 +934,21 @@
                 el.setAttribute('target', '_blank');
                 el.setAttribute('rel', 'noopener noreferrer');
             });
+            /* Si appel depuis le formulaire RDV : afficher directement Togo/Bénin/Europe */
+            if (showCountriesDirectly) {
+                document.getElementById('africaCountries').classList.add('active');
+            } else {
+                document.getElementById('africaCountries').classList.remove('active');
+            }
             document.getElementById('whatsappModal').classList.add('active');
+        }
+        function onCountryClicked() {
+            if (_fromFormRDV) {
+                _fromFormRDV = false;
+                closeWhatsAppModal();
+                showSuccessModal();
+                document.getElementById('appointmentForm').reset();
+            }
         }
         function closeWhatsAppModal() {
             document.getElementById('whatsappModal').classList.remove('active');
